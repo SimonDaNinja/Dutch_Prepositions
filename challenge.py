@@ -81,7 +81,12 @@ if __name__ == "__main__":
     englishList = list(prepositionDict)
 
     while len(englishList)>0:
-        os.system('clear')
+        if os.name =='posix':
+            os.system('clear')
+        elif os.name == 'nt':
+            os.system('cls')
+        else:
+            print("unknown operating system. will not clear window between words.")
         english = random.choice(englishList)
         dutch = set(prepositionDict[english].split('/'))
         answer = set(input(f'what is the dutch word for "{english}"? (If more than one answer, separate with\"/\")\n').lower().split('/'))
