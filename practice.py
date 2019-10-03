@@ -81,14 +81,15 @@ if __name__ == "__main__":
     englishList = list(prepositionDict)
     increaseRate = round(len(englishList)/4)
     decreaseRate = round(increaseRate/2)
+    if (os.name!='posix') and (os.name!='nt'):
+            print("Unknown operating system! Will not clear window between words!")
+            print("\n(clearing window is supported for posix-systems (such as Mac, Linux, other unix-based systems),\nas well as in nt-systems (Microsoft Windows)\n")
 
     while True:
         if os.name =='posix':
             os.system('clear')
         elif os.name == 'nt':
             os.system('cls')
-        else:
-            print("unknown operating system. will not clear window between words.")
         english = random.choice(englishList)
         dutch = set(prepositionDict[english].split('/'))
         answer = set(input(f'what is the dutch word for "{english}"? (If more than one answer, separate with\"/\")\n').lower().split('/'))
@@ -104,7 +105,10 @@ if __name__ == "__main__":
         else:
             print(f"That's not correct...\nThe correct answer is: \"{'/'.join(dutch)}\"\n")
             for i in range(increaseRate):
-                englishList.append(english)
+                if englishList.count(english)<4*increaseRate:
+                    englishList.append(english)
+                else:
+                    break
         dummyResponse = input(f"press enter to continue\n")
         if dummyResponse == 'exit':
             exit()

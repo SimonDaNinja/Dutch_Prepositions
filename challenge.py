@@ -79,14 +79,15 @@ prepositionDict = {"about":"over",
 
 if __name__ == "__main__":
     englishList = list(prepositionDict)
+    if (os.name!='posix') and (os.name!='nt'):
+            print("Unknown operating system! Will not clear window between words!")
+            print("\n(clearing window is supported for posix-systems (such as Mac, Linux, other unix-based systems),\nas well as in nt-systems (Microsoft Windows)\n")
 
     while len(englishList)>0:
         if os.name =='posix':
             os.system('clear')
         elif os.name == 'nt':
             os.system('cls')
-        else:
-            print("unknown operating system. will not clear window between words.")
         english = random.choice(englishList)
         dutch = set(prepositionDict[english].split('/'))
         answer = set(input(f'what is the dutch word for "{english}"? (If more than one answer, separate with\"/\")\n').lower().split('/'))
