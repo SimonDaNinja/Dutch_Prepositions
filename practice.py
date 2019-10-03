@@ -105,4 +105,6 @@ if __name__ == "__main__":
             print(f"That's not correct...\nThe correct answer is: \"{'/'.join(dutch)}\"\n")
             for i in range(increaseRate):
                 englishList.append(english)
-        input(f"press enter to continue")
+        dummyResponse = input(f"press enter to continue\n")
+        if dummyResponse == 'exit':
+            exit()

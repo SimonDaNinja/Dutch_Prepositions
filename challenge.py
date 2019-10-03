@@ -92,14 +92,17 @@ if __name__ == "__main__":
         answer = set(input(f'what is the dutch word for "{english}"? (If more than one answer, separate with\"/\")\n').lower().split('/'))
         if answer == {'exit'}:
             exit()
-        if answer == dutch:
+        elif answer == dutch:
             print("that's correct!")
             englishList.remove(english)
         else:
             print(f"That's not correct...\nThe correct answer is: \"{'/'.join(dutch)}\"\n")
             for i in range(3):
                 englishList.append(english)
-        input(f"you currently need {len(englishList)} correct answers to win\npress enter to continue")
+        if len(englishList)>0:
+            dummyResponse = input(f"you currently need {len(englishList)} correct answers to win\npress enter to continue\n")
+            if dummyResponse == 'exit':
+                exit()
 
     print("congratulations! You got through all propositions! that is impressive!")
     input("press enter to exit")
