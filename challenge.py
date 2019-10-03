@@ -80,8 +80,8 @@ prepositionDict = {"about":"over",
 if __name__ == "__main__":
     englishList = list(prepositionDict)
     if (os.name!='posix') and (os.name!='nt'):
-            print("Unknown operating system! Will not clear window between words!")
-            print("\n(clearing window is supported for posix-systems (such as Mac, Linux, other unix-based systems),\nas well as in nt-systems (Microsoft Windows))\n")
+        print("Unknown operating system! Will not clear window between words!")
+        print("\n(clearing window is supported for posix-systems (such as Mac, Linux, other unix-based systems),\nas well as in nt-systems (Microsoft Windows))\n")
 
     while len(englishList)>0:
         if os.name =='posix':
