@@ -102,3 +102,4 @@ if __name__ == "__main__":
         input(f"you currently need {len(englishList)} correct answers to win\npress enter to continue")
 
     print("congratulations! You got through all propositions! that is impressive!")
+    input("press enter to exit")
